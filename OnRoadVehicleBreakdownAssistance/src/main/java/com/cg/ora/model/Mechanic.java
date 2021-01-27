@@ -30,7 +30,7 @@ public class Mechanic {
 	private int mechanicId;
 	
 	@NotNull
-	@Size(min = 5, max = 15, message 
+	@Size(min = 1, message 
     = "Mechanic name must ne between 5 and 15 characters")
 	@Column(name="mechanicname")
 	private String mechanicName;
@@ -42,7 +42,7 @@ public class Mechanic {
    
 	
 	@NotNull
-	@Size(min = 5, max = 15, message 
+	@Size(min = 1, message 
     = "Service type must ne between 5 and 15 characters")
 	@Column(name="mechanicservicetype")
 	private String mechanicServiceType;
@@ -59,7 +59,7 @@ public class Mechanic {
 	private String mechanicPassword;
 	
 	@NotNull
-	@Size(min = 5, max = 15, message 
+	@Size(min = 1, message 
     = "Location must ne between 5 and 15 characters")
 	@Column(name="location")
 	private String location;
@@ -73,12 +73,12 @@ public class Mechanic {
 	}
 
 	public Mechanic(int mechanicId,
-			@NotNull @Size(min = 5, max = 15, message = "Mechanic name must ne between 5 and 15 characters") String mechanicName,
+			@NotNull @Size(min = 1, message = "Mechanic name must ne between 5 and 15 characters") String mechanicName,
 			@NotNull @Size(min = 10, max = 10, message = "wrong phone number") BigInteger mechanicPhoneNumber,
-			@NotNull @Size(min = 5, max = 15, message = "Service type must ne between 5 and 15 characters") String mechanicServiceType,
+			@NotNull @Size(min = 1, message = "Service type must ne between 5 and 15 characters") String mechanicServiceType,
 			@Email @NotNull String mechanicEmailId,
 			@NotNull @Size(min = 5, max = 8, message = "Password must ne between 5 and 8 characters") String mechanicPassword,
-			@NotNull @Size(min = 5, max = 15, message = "Location must ne between 5 and 15 characters") String location,
+			@NotNull @Size(min = 1,message = "Location must ne between 5 and 15 characters") String location,
 			List<Feedback> feedback) {
 		super();
 		this.mechanicId = mechanicId;

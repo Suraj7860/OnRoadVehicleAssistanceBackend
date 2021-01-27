@@ -30,7 +30,7 @@ import javax.persistence.Id;
 	private int userId;
 	
     @NotNull
-    @Size(min = 2, max = 15, message 
+    @Size(min = 1, message 
     = "User name must ne between 5 and 15 characters")
 	@Column (name="username")
 	private String userName;
@@ -124,7 +124,6 @@ import javax.persistence.Id;
 	}
 
 	
+	}	
 	
 	
-	
-}
