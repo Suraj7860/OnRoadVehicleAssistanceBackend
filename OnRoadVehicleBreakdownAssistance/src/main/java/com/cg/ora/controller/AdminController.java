@@ -144,7 +144,7 @@ public class AdminController {
 	
 	@GetMapping("/viewRatings/{mechanicId}")
 	public ResponseEntity<Double> allowOrBlockMechanic(@PathVariable("mechanicId") int mechanicId)
-			throws MechanicNotFoundException {
+			 {
 		LOGGER.info("Allow and Block method started");
 		double ratings = adminService.allowOrBlockMechanic(mechanicId);
 		return new ResponseEntity<Double>(ratings, HttpStatus.OK);

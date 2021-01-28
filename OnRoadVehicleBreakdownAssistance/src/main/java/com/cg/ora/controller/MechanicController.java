@@ -54,11 +54,12 @@ public class MechanicController {
 	
 	@PostMapping("/mechanicLogin")
 	public ResponseEntity<MechanicMessage> mechanicLogin(@Valid @RequestParam("email") String email,
-			@RequestParam("password") String password) throws MechanicNotFoundException{
+			@RequestParam("password") String password){
+		MechanicMessage msgobj=new MechanicMessage();
+		
 		LOGGER.info("Mechanic Login");
 		if(mechanicService.getMechanic(email)) {
 			LOGGER.info("Mechanic Login");
-			MechanicMessage msgobj=new MechanicMessage();
 			
 			msgobj.setMechanicList(mechanicService.viewMechanicByEmailId(email));
 			boolean login = mechanicService.loginMechanic(email, password);
@@ -75,7 +76,7 @@ public class MechanicController {
 			}
 			else {
 				LOGGER.error("Mechanic does not exist");
-				throw new MechanicNotFoundException("Mechanic not found");
+				return new ResponseEntity<MechanicMessage>(msgobj, HttpStatus.NOT_FOUND);
 			}
 	}
 	/**

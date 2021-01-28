@@ -57,7 +57,7 @@ public class UserController {
 	
 	@PostMapping("/userLogin")
 	public ResponseEntity<Message> userLogin(@Valid  @RequestParam("email") String email,
-			@RequestParam("password") String password) throws UserNotFoundException{
+			@RequestParam("password") String password) {
 		Message msgobj=new Message();
 		if(userService.getUser(email)) {
 			
@@ -75,8 +75,8 @@ public class UserController {
 		}	
 		}
 		else {
-			LOGGER.error("User does not exist");
-			throw new UserNotFoundException("User not found");
+			LOGGER.error("User does not exist");	
+			return new ResponseEntity<Message>(msgobj, HttpStatus.NOT_FOUND);
 		}
 	}
 	/**
